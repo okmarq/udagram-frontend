@@ -29,11 +29,9 @@ jobs:
           name: Push application Docker image
           command: |
             docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-            docker tag udagram-frontend $DOCKER_HUB_USER_ID/udagram-frontend:$CIRCLE_SHA1
             docker tag udagram-frontend $DOCKER_HUB_USER_ID/udagram-frontend:latest
             docker tag udagram-frontend $DOCKER_HUB_USER_ID/udagram-frontend:local
             docker tag udagram-frontend $DOCKER_HUB_USER_ID/udagram-frontend:v2
-            docker push $DOCKER_HUB_USER_ID/udagram-frontend:$CIRCLE_SHA1
             docker push $DOCKER_HUB_USER_ID/udagram-frontend:latest
             docker push $DOCKER_HUB_USER_ID/udagram-frontend:local
             docker push $DOCKER_HUB_USER_ID/udagram-frontend:v2
